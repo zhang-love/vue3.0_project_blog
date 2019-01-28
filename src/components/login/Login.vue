@@ -43,7 +43,7 @@
                     <div class="validation">1111</div>
                 </div>
                 <div class="login_fields_user">
-                    <input class="login_btn" type="button" value="登陆"/>
+                    <input class="login_btn" type="button" value="登陆" @click="toIndex()"/>
                 </div>
             </div>
         </div>
@@ -90,6 +90,9 @@
         },
 
         methods:{
+            toIndex:function(){
+                this.$router.push({path:'/index'})
+            }
         }
     }
 </script>
