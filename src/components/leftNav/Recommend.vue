@@ -1,9 +1,9 @@
 <template>
-    <div class="">
+    <div style="width:100%;height:100%;">
         <div class="carousel_wrap">
             <el-carousel >
                 <el-carousel-item v-for="item in carouselImg" :key="item">
-                    <img :src="item" width="100%" height="300" />
+                    <img :src="item" width="100%" height="300px" />
                     <!--<img :src="s" height="300" width="100%"/>-->
                 </el-carousel-item>
             </el-carousel>
@@ -25,5 +25,4 @@
 </script>
 
 <style>
-
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <div class="body_wrap ">
+        <div class="head-content">
             <div class="head_wrap ">
                 <div class="head_title">
                     <span >新闻博客</span>
@@ -24,12 +24,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="search_wrap">
-
-                    <input type="text" class="search_inp"/>
-                    <div class="search_btn">搜索</div>
+                <div class="search">
+                    <div class="search_wrap">
+                        <input type="text" class="search_inp"/>
+                        <div class="search_btn">搜索</div>
+                    </div>
                 </div>
+
             </div>
+        </div>
+        <div class="body_wrap ">
             <div class="left-nav clearfix">
                 <ul>
                     <!--<li :class="{active:isActive}"><a href="#" @click="leftNavClick($event)">推荐</a></li>-->
@@ -42,7 +46,7 @@
                     <li v-for="(item,index) in leftNav" :key="index"><div class="leftBtn" @click="leftNavClick($event,item.path)">{{item.name}}</div></li>
                 </ul>
             </div>
-            <div class="right-content">
+            <div class="center-content">
                 <router-view></router-view>
             </div>
 
@@ -62,15 +66,11 @@
             }
         },
         created(){
-            this.leftNav=(this.$router.options.routes[2].children)
-            console.log(this.leftNav)
-            console.log(this.$router)
+            this.leftNav=(this.$router.options.routes[3].children)
         },
         methods:{
             leftNavClick(event,path){
-                console.log(event)
                 this.isActive=true;
-                console.log('--------',path)
                 this.$router.push({path:path})
             }
         }
@@ -82,7 +82,8 @@
     clear:both;
 }
 .body_wrap{
-    margin:20px 40px ;
+    width:1200px;
+    margin:0 auto;
     .left-nav{
         float:left;
         margin-right:20px;
@@ -107,12 +108,18 @@
             }
         }
     }
-    .right-content{
+    .center-content{
         float:left;
+        width:760px;
     }
+}
+.head-content{
+    padding: 20px 0;
     .head_wrap{
+        width:1200px;
+        margin:0 auto;
         .head_title{
-            height:60px;
+            height:35px;
             color:green;
             font-size:18px;
             font-weight:bold;
@@ -129,29 +136,31 @@
                 }
             }
         }
-        .search_wrap{
-            display:inline-block;
+        .search{
             float:right;
-            border:2px solid red;
-            padding:6px 10px 5px;
-            position:relative;
-            .search_inp{
-                border:0px;
-                height:20px;
-            }
-            .search_btn{
-                position:absolute;
-                right:0;
-                top:0;
-                width:50px;
-                color:#fff;
-                height:33px;
-                line-height:33px;
-                text-align:center;
-                background:red;
+            .search_wrap{
+                border:2px solid red;
+                padding:6px 10px 5px;
+                position:relative;
+                .search_inp{
+                    border:0px;
+                    height:20px;
+                }
+                .search_btn{
+                    position:absolute;
+                    right:0;
+                    top:0;
+                    width:50px;
+                    color:#fff;
+                    height:33px;
+                    line-height:33px;
+                    text-align:center;
+                    background:red;
 
+                }
             }
         }
+
     }
 }
 
